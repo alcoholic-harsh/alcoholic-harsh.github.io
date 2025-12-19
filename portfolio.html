@@ -5,143 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio | Reel Visionary</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Tailwind -->
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Icons -->
   <script src="https://unpkg.com/feather-icons"></script>
-
-  <!-- Components -->
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
+<custom-navbar></custom-navbar>
 
-  <!-- NAVBAR -->
-  <custom-navbar></custom-navbar>
+<main class="container mx-auto px-4 py-24">
 
-  <!-- MAIN -->
-  <main class="container mx-auto px-4 py-24">
+  <!-- ================= PAGE HEADING ================= -->
+  <h1 class="text-4xl md:text-5xl font-bold mb-4">My Video Portfolio</h1>
+  <p class="text-xl text-gray-600 mb-12 max-w-2xl">
+    Click any project to watch with sound & fullscreen.
+  </p>
 
-    <!-- ================= HEADING ================= -->
-    <div class="mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">My Video Portfolio</h1>
-      <p class="text-xl text-gray-600 max-w-2xl">
-        Click on any project to watch it with sound and fullscreen.
-      </p>
+  <!-- ================= PORTFOLIO GRID ================= -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- ================================================= -->
+    <!-- PROJECT 1 : YAMINI (LANDSCAPE) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-landscape cursor-pointer"
+         onclick="openVideo('yamini_ssvjao','landscape')">
+
+      <!-- THUMBNAIL IMAGE -->
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067499/video1_kckelc.jpg"
+        class="w-full h-full object-cover"
+        alt="Yamini Project">
     </div>
 
-    <!-- ================= PORTFOLIO GRID ================= -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- ================================================= -->
+    <!-- PROJECT 2 : THALA (LANDSCAPE) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-landscape cursor-pointer"
+         onclick="openVideo('thala_heye9q','landscape')">
 
-      <!-- ================================================= -->
-      <!-- PROJECT 1 : YAMINI (LANDSCAPE) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-landscape cursor-pointer"
-           onclick="openVideo('yamini_ssvjao','landscape')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067499/video1_kckelc.jpg"
-          class="w-full h-full object-cover"
-          alt="Yamini Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- PROJECT 2 : THALA (LANDSCAPE) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-landscape cursor-pointer"
-           onclick="openVideo('thala_heye9q','landscape')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067497/video2_vdj1mx.jpg"
-          class="w-full h-full object-cover"
-          alt="Thala Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- PROJECT 3 : VANDE (LANDSCAPE) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-landscape cursor-pointer"
-           onclick="openVideo('vande_kp8wd4','landscape')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067497/video3_t3mmeb.jpg"
-          class="w-full h-full object-cover"
-          alt="Vande Bharat Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- PROJECT 4 : RIYA (PORTRAIT) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-portrait cursor-pointer"
-           onclick="openVideo('1024_pi9phv','portrait')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067496/riya_jnvbzj.jpg"
-          class="w-full h-full object-cover"
-          alt="Riya Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- PROJECT 5 : ADI (PORTRAIT) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-portrait cursor-pointer"
-           onclick="openVideo('adi_wwodvj','portrait')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067495/adi_anxtba.jpg"
-          class="w-full h-full object-cover"
-          alt="Adi Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- PROJECT 6 : CHIKU (LANDSCAPE) -->
-      <!-- ================================================= -->
-      <div class="portfolio-card reel-landscape cursor-pointer"
-           onclick="openVideo('chiku_ss1qas','landscape')">
-        <img
-          src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067496/chiku_ylpkmv.jpg"
-          class="w-full h-full object-cover"
-          alt="Chiku Project">
-      </div>
-
-      <!-- ================================================= -->
-      <!-- ADD MORE PROJECTS BELOW (COPY ANY BLOCK) -->
-      <!-- ================================================= -->
-
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067497/video2_vdj1mx.jpg"
+        class="w-full h-full object-cover"
+        alt="Thala Project">
     </div>
-  </main>
 
-  <!-- ================= VIDEO MODAL ================= -->
-  <div id="videoModal"
-       class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+    <!-- ================================================= -->
+    <!-- PROJECT 3 : VANDE (LANDSCAPE) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-landscape cursor-pointer"
+         onclick="openVideo('vande_kp8wd4','landscape')">
 
-    <div id="videoWrapper" class="relative">
-
-      <!-- CLOSE BUTTON -->
-      <button onclick="closeVideo()"
-              class="absolute -top-10 right-0 text-white text-2xl">
-        ✕
-      </button>
-
-      <!-- CLOUDINARY PLAYER -->
-      <iframe
-        id="videoFrame"
-        class="w-full h-full rounded-xl"
-        allow="autoplay; fullscreen"
-        allowfullscreen>
-      </iframe>
-
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067497/video3_t3mmeb.jpg"
+        class="w-full h-full object-cover"
+        alt="Vande Project">
     </div>
+
+    <!-- ================================================= -->
+    <!-- PROJECT 4 : RIYA (PORTRAIT) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-portrait cursor-pointer"
+         onclick="openVideo('riya_xadhgy','portrait')">
+
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067496/riya_jnvbzj.jpg"
+        class="w-full h-full object-cover"
+        alt="Riya Project">
+    </div>
+
+    <!-- ================================================= -->
+    <!-- PROJECT 5 : ADI (PORTRAIT) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-portrait cursor-pointer"
+         onclick="openVideo('adi_wwodvj','portrait')">
+
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067495/adi_anxtba.jpg"
+        class="w-full h-full object-cover"
+        alt="Adi Project">
+    </div>
+
+    <!-- ================================================= -->
+    <!-- PROJECT 6 : CHIKU (LANDSCAPE) -->
+    <!-- ================================================= -->
+    <div class="portfolio-card reel-landscape cursor-pointer"
+         onclick="openVideo('chiku_ss1qas','landscape')">
+
+      <img
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766067496/chiku_ylpkmv.jpg"
+        class="w-full h-full object-cover"
+        alt="Chiku Project">
+    </div>
+
   </div>
+</main>
 
-  <!-- FOOTER -->
-  <custom-footer></custom-footer>
+<!-- ================= VIDEO MODAL ================= -->
+<div id="videoModal"
+     class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
 
-  <!-- JS -->
-  <script src="script.js"></script>
-  <script>
-    feather.replace();
-  </script>
+  <div id="videoWrapper"
+       class="relative w-[90%] max-w-4xl aspect-video">
 
+    <button onclick="closeVideo()"
+            class="absolute -top-10 right-0 text-white text-2xl">
+      ✕
+    </button>
+
+    <iframe
+      id="videoFrame"
+      class="w-full h-full rounded-xl"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<custom-footer></custom-footer>
+
+<script src="script.js"></script>
+<script>feather.replace()</script>
 </body>
 </html>
