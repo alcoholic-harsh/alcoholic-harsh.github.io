@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Smooth scroll
+  // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener("click", e => {
       const id = a.getAttribute("href");
@@ -18,24 +18,16 @@ function openVideo(publicId, orientation = "landscape") {
   const frame = document.getElementById("videoFrame");
   const wrapper = document.getElementById("videoWrapper");
 
-  // RESET FIRST
-  wrapper.style.cssText = "";
-
   if (orientation === "portrait") {
-    /* MOBILE-FIRST PORTRAIT (REELS STYLE) */
-    wrapper.style.width = "100vw";
-    wrapper.style.height = "90vh";
-    wrapper.style.maxWidth = "420px";
+    wrapper.className =
+      "relative w-[90%] max-w-md aspect-[9/16]";
   } else {
-    /* LANDSCAPE */
-    wrapper.style.width = "95vw";
-    wrapper.style.maxWidth = "1100px";
-    wrapper.style.aspectRatio = "16 / 9";
+    wrapper.className =
+      "relative w-[90%] max-w-4xl aspect-video";
   }
 
   frame.src =
-    "https://player.cloudinary.com/embed/?" +
-    "cloud_name=dcqktwoqz" +
+    "https://player.cloudinary.com/embed/?cloud_name=dcqktwoqz" +
     "&public_id=" + publicId +
     "&autoplay=true";
 
@@ -44,11 +36,6 @@ function openVideo(publicId, orientation = "landscape") {
 }
 
 function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  const wrapper = document.getElementById("videoWrapper");
-
-  frame.src = "";
-  wrapper.style.cssText = "";
-  modal.classList.add("hidden");
+  document.getElementById("videoFrame").src = "";
+  document.getElementById("videoModal").classList.add("hidden");
 }
