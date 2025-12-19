@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.portfolio-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e5e7eb;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: scale(1.02);
+}
+
+.reel-portrait {
+  aspect-ratio: 9 / 16;
+}
+
+.reel-landscape {
+  aspect-ratio: 16 / 9;
+}
