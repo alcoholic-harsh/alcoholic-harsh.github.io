@@ -39,7 +39,11 @@ body {
 .bg-indigo-50  { background-color: #eef2ff; }
 .bg-indigo-100 { background-color: #e0e7ff; }
 .bg-indigo-600 { background-color: #4f46e5; }
-.bg-black\/80 { background-color: rgba(0,0,0,0.8); }
+.bg-black\/80 {
+  background-color: rgba(0,0,0,0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
 .text-gray-600 { color: #4b5563; }
 .text-gray-700 { color: #374151; }
 .text-gray-900 { color: #111827; }
