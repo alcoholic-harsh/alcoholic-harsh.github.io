@@ -110,6 +110,7 @@ body {
 .w-full { width: 100%; }
 .h-full { height: 100%; }
 .w-5 { width: 1.25rem; }
+.w-48 { width: 12rem; }
 .h-5 { height: 1.25rem; }
 .w-\[90\%\] { width: 90%; }
 .max-w-2xl { max-width: 42rem; }
