@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener("click", e => {
@@ -10,31 +9,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
 });
-
 function openVideo(publicId, orientation = "landscape") {
   const modal = document.getElementById("videoModal");
   const frame = document.getElementById("videoFrame");
   const wrapper = document.getElementById("videoWrapper");
-
   if (orientation === "portrait") {
-    wrapper.className =
-      "relative w-[90%] max-w-md aspect-[9/16]";
+    // Height-capped (not width-capped) so tall 9:16 videos never
+    // overflow the viewport on wide/short screens (e.g. laptops) —
+    // this is what keeps the close (✕) button visible.
+    wrapper.className = "modal-wrapper-portrait";
   } else {
-    wrapper.className =
-      "relative w-[90%] max-w-4xl aspect-video";
+    wrapper.className = "modal-wrapper-landscape";
   }
-
   frame.src =
     "https://player.cloudinary.com/embed/?cloud_name=dcqktwoqz" +
     "&public_id=" + publicId +
     "&autoplay=true";
-
   modal.classList.remove("hidden");
   modal.classList.add("flex");
 }
-
 function closeVideo() {
   document.getElementById("videoFrame").src = "";
   document.getElementById("videoModal").classList.add("hidden");
