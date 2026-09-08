@@ -9,19 +9,18 @@
     <link rel="preconnect" href="https://res.cloudinary.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts loaded via non-blocking <link> instead of CSS @import -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 
     <link rel="stylesheet" href="style.css">
 
-    <!--
-      NOTE: cdn.tailwindcss.com is a JIT compiler that runs in the browser
-      on every page load — it's the single biggest cause of your slow
-      Performance score (it's not meant for production use).
-      Best fix: run `npx tailwindcss -o style.css --minify` locally once,
-      paste the generated utility classes into style.css, and delete this
-      script entirely. Keeping it for now, but deferred so it no longer
-      blocks the initial render.
-    -->
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <!-- Tailwind CDN removed — its runtime JIT compile was causing the
+         page to render unstyled, then snap into its final layout once
+         the script finished, which is what caused CLS 0.519. Utility
+         classes are now hand-written into style.css instead. -->
 
     <!-- Removed duplicate feather-icons load (was loaded twice) -->
     <script src="https://unpkg.com/feather-icons" defer></script>
@@ -56,7 +55,7 @@
                     -->
                     <div class="relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-xl">
                         <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
-                            <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766123870/hero_odgmpi.mp4" type="video/mp4">
+                            <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/q_auto,vc_auto,w_1280/v1766123870/hero_odgmpi.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
                             <h3 class="text-white text-xl font-medium">Project Highlight</h3>
@@ -76,19 +75,19 @@
                      plays them once they scroll into view. -->
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
                     <video class="w-full h-full object-cover" muted loop playsinline preload="none">
-                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766124225/yamini_xcjarb.mp4" type="video/mp4">
+                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/q_auto,vc_auto,w_640/v1766124225/yamini_xcjarb.mp4" type="video/mp4">
                     </video>
                 </div>
 
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
                     <video class="w-full h-full object-cover" muted loop playsinline preload="none">
-                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766126607/thala_itw8fe.mp4" type="video/mp4">
+                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/q_auto,vc_auto,w_640/v1766126607/thala_itw8fe.mp4" type="video/mp4">
                     </video>
                 </div>
 
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
                     <video class="w-full h-full object-cover" muted loop playsinline preload="none">
-                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766123893/vande_kuzstx.mp4" type="video/mp4">
+                        <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/q_auto,vc_auto,w_640/v1766123893/vande_kuzstx.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
