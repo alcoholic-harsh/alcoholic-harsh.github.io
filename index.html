@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reel Visionary | Video Editor Portfolio</title>
+
+    <!-- Preconnect to external origins used on this page -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
+
+    <!--
+      NOTE: cdn.tailwindcss.com is a JIT compiler that runs in the browser
+      on every page load — it's the single biggest cause of your slow
+      Performance score (it's not meant for production use).
+      Best fix: run `npx tailwindcss -o style.css --minify` locally once,
+      paste the generated utility classes into style.css, and delete this
+      script entirely. Keeping it for now, but deferred so it no longer
+      blocks the initial render.
+    -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+
+    <!-- Removed duplicate feather-icons load (was loaded twice) -->
+    <script src="https://unpkg.com/feather-icons" defer></script>
+
+    <!-- Component scripts deferred so they don't block first paint -->
+    <script src="components/navbar.js" defer></script>
+    <script src="components/footer.js" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
     <custom-navbar></custom-navbar>
@@ -27,8 +46,16 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
+                    <!--
+                      This hero video is your LCP element (5.4s!). It needs to load
+                      as fast as possible, so it keeps preload="auto" while every
+                      other video on the page is deferred with preload="none" below.
+                      Ask Cloudinary/host to serve a compressed, shorter clip if
+                      possible — video weight is likely a big chunk of your
+                      "Improve image/video delivery" savings.
+                    -->
                     <div class="relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-xl">
-                        <video class="w-full h-full object-cover" autoplay muted loop>
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline preload="auto">
                             <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766123870/hero_odgmpi.mp4" type="video/mp4">
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
@@ -43,24 +70,24 @@
         <section id="work" class="mb-20">
             <h2 class="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
+                <!-- Below-the-fold videos: preload="none" so they don't compete
+                     with the hero video/LCP for bandwidth on page load. The
+                     IntersectionObserver script at the bottom already only
+                     plays them once they scroll into view. -->
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
-                    <video class="w-full h-full object-cover" muted loop>
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="none">
                         <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766124225/yamini_xcjarb.mp4" type="video/mp4">
                     </video>
                 </div>
-                
 
-                <!-- Project 2 -->
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
-                    <video class="w-full h-full object-cover" muted loop>
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="none">
                         <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766126607/thala_itw8fe.mp4" type="video/mp4">
                     </video>
                 </div>
-                
-                <!-- Project 3 -->
+
                 <div class="group relative aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-lg">
-                    <video class="w-full h-full object-cover" muted loop>
+                    <video class="w-full h-full object-cover" muted loop playsinline preload="none">
                         <source src="https://res.cloudinary.com/dcqktwoqz/video/upload/v1766123893/vande_kuzstx.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -78,12 +105,24 @@
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/3">
                     <div class="bg-gray-200 aspect-square rounded-full overflow-hidden shadow-xl">
-                        <img src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123991/Me_b43kkd.jpg" alt="Video Editor" class="w-full h-full object-cover">
+                        <!--
+                          Cloudinary can resize/compress on the fly by adding
+                          transformation params to the URL. This alone can knock
+                          a lot off your "Improve image delivery" savings.
+                          Example added below: w_500,q_auto,f_auto
+                        -->
+                        <img
+                            src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_500,q_auto,f_auto/v1766123991/Me_b43kkd.jpg"
+                            alt="Video Editor"
+                            width="500"
+                            height="500"
+                            loading="lazy"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
                 <div class="md:w-2/3">
                     <h2 class="text-3xl font-bold mb-6">About Me</h2>
-                    <p class="text-lg mb-6 text-gray-700">I’m a freelance video editor with hands-on experience editing reels, short-form videos, YouTube content, and cinematic edits. Since starting in 2020, I’ve focused on transforming raw footage into clean, engaging videos that capture attention and communicate ideas clearly.</p>
+                    <p class="text-lg mb-6 text-gray-700">I'm a freelance video editor with hands-on experience editing reels, short-form videos, YouTube content, and cinematic edits. Since starting in 2020, I've focused on transforming raw footage into clean, engaging videos that capture attention and communicate ideas clearly.</p>
                     <p class="text-lg mb-8 text-gray-700">My work emphasizes strong pacing, smooth transitions, and storytelling suited for digital platforms. I edit comfortably in Hindi and English, follow structured workflows.</p>
                     <div class="flex flex-wrap gap-4">
                         <div class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full">CapCut PC</div>
@@ -99,7 +138,7 @@
             <div class="bg-indigo-50 rounded-2xl p-8 md:p-12">
                 <h2 class="text-3xl font-bold mb-6">Let's Work Together</h2>
                 <p class="text-lg mb-8 text-gray-700 max-w-2xl">Have a project in mind? I'd love to hear about it. Fill out the form below and I'll get back to you within 24 hours.</p>
-                
+
                 <form
                      action="https://formspree.io/f/xpqaanlw"
                      method="POST"
@@ -138,24 +177,28 @@
 
     <custom-footer></custom-footer>
 
-    <script src="script.js"></script>
-    <script>
-        feather.replace();
-        
-        // Auto-play videos when they come into view
-        const videos = document.querySelectorAll('video');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.play();
-                } else {
-                    entry.target.pause();
-                }
-            });
-        }, { threshold: 0.5 });
+    <script src="script.js" defer></script>
+    <script defer>
+        // feather may not be ready instantly since it's now deferred too —
+        // wrap in a small check so it doesn't error if it fires early.
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.feather) feather.replace();
 
-        videos.forEach(video => {
-            observer.observe(video);
+            // Auto-play videos when they come into view
+            const videos = document.querySelectorAll('video');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play();
+                    } else {
+                        entry.target.pause();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            videos.forEach(video => {
+                observer.observe(video);
+            });
         });
     </script>
 </body>
