@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio | Reel Visionary</title>
 
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link rel="preconnect" href="https://unpkg.com">
+
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://unpkg.com/feather-icons" defer></script>
+  <script src="components/navbar.js" defer></script>
+  <script src="components/footer.js" defer></script>
 </head>
 
 <body class="bg-gray-50 text-gray-900">
@@ -24,239 +27,203 @@
   </p>
 
   <!-- ================= PORTFOLIO GRID ================= -->
+  <!--
+    All thumbnails below now:
+    - use Cloudinary transforms (w_400,q_auto,f_auto) to serve small,
+      compressed, auto-format (WebP/AVIF) images instead of full-size
+      originals — this is your biggest "Improve image delivery" win.
+    - have width/height set to prevent layout shift.
+    - use loading="lazy" for everything except the first 2 cards
+      (kept eager since they're above the fold).
+  -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <!-- ================================================= -->
-    <!-- PROJECT 1 : YAMINI (LANDSCAPE) -->
-    <!-- ================================================= -->
+    <!-- PROJECT 1 : YAMINI (LANDSCAPE) — above the fold, eager -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('yamini_xcjarb','landscape')">
-
-      <!-- THUMBNAIL IMAGE -->
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123995/video1_dbq7hz.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123995/video1_dbq7hz.jpg"
+        width="400" height="225"
         class="w-full h-full object-cover"
         alt="Yamini Project">
     </div>
 
-    <!-- ================================================= -->
-    <!-- PROJECT 15 : A1 Tutorials (LANDSCAPE) -->
-    <!-- ================================================= -->
+    <!-- PROJECT 15 : A1 Tutorials (LANDSCAPE) — above the fold, eager -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('0629_1_iuj0po','landscape')">
-
-      <!-- THUMBNAIL IMAGE -->
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1782750904/vlcsnap-2026-06-29-22h03m02s964_mwxhvb.png"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1782750904/vlcsnap-2026-06-29-22h03m02s964_mwxhvb.png"
+        width="400" height="225"
         class="w-full h-full object-cover"
         alt="A1 Tutorials Project">
     </div>
 
-        <!-- ================================================= -->
-
     <!-- PROJECT 16 : Bachelor's Room (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('0629_2_x5c4tr','landscape')">
-
-      <!-- THUMBNAIL IMAGE -->
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1782750911/vlcsnap-2026-06-29-22h04m09s029_awxdhz.png"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1782750911/vlcsnap-2026-06-29-22h04m09s029_awxdhz.png"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Bachelor's Room Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 12 : GODL (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('godl_ypljjv','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123992/godl_urnt6f.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123992/godl_urnt6f.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Godl Project">
     </div>
 
-  
-
-    <!-- ================================================= -->
     <!-- PROJECT 2 : THALA (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('thala_itw8fe','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123994/video2_mnsdsi.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123994/video2_mnsdsi.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Thala Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 3 : VANDE (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('vande_kuzstx','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123995/video3_crkzkz.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123995/video3_crkzkz.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Vande Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 4 : RIYA (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('riya_trnv1n','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123990/riya_calin0.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123990/riya_calin0.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Riya Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 5 : ADI (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('adi_mirpmu','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123991/adi_hjjhbb.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123991/adi_hjjhbb.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Adi Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 6 : RAJ (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('raj_x60jox','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123990/raj_ky932s.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123990/raj_ky932s.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Raj Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 7 : LAPTOP (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('laptop_wqafci','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123991/laptop_gcf0jv.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123991/laptop_gcf0jv.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Laptop Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 8 : RAFTING (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('rafting_rftzcl','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123992/rafting_wunwis.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123992/rafting_wunwis.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Rafting Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 9 : NAINITAL (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('nainital_pj3dxb','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123991/nainital_odlc8u.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123991/nainital_odlc8u.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Nainital Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 10 : CHIKU (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('chiku_jvogb7','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123991/chiku_zjfd16.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123991/chiku_zjfd16.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Chiku Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 11 : JANESHWAR (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('janeshwar_skenwg','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123989/janeshwar_sqvcd4.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123989/janeshwar_sqvcd4.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Janeshwar Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 12 : GANVKATHA (LANDSCAPE) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-landscape cursor-pointer"
          onclick="openVideo('gaanvkatha_vv6zri','landscape')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766125692/gaanvkatha_cyhmvw.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766125692/gaanvkatha_cyhmvw.jpg"
+        width="400" height="225" loading="lazy"
         class="w-full h-full object-cover"
         alt="Gaanvkatha Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 13 : VISARJAN (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('visarjan_u37syh','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766123990/visarjan_croce6.jpg"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766123990/visarjan_croce6.jpg"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Visarjan Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 13 : Tractor (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('0629_ij3cqj','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1782750908/vlcsnap-2026-06-29-22h03m30s773_fyguy2.png"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1782750908/vlcsnap-2026-06-29-22h03m30s773_fyguy2.png"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Tractor Project">
     </div>
 
-
-    <!-- ================================================= -->
     <!-- PROJECT 13 : VOTING (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('Final_1_ciwgbp','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1766830016/vlcsnap-2025-12-27-15h36m02s956_zpdmyo.png"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1766830016/vlcsnap-2025-12-27-15h36m02s956_zpdmyo.png"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Voting Project">
     </div>
 
-    <!-- ================================================= -->
     <!-- PROJECT 14 : LENSKART (PORTRAIT) -->
-    <!-- ================================================= -->
     <div class="portfolio-card reel-portrait cursor-pointer"
          onclick="openVideo('Compressed_sbmvjq','portrait')">
-
       <img
-        src="https://res.cloudinary.com/dcqktwoqz/image/upload/v1767950812/vlcsnap-2026-01-09-14h56m23s362_rvhvqz.png"
+        src="https://res.cloudinary.com/dcqktwoqz/image/upload/w_400,q_auto,f_auto/v1767950812/vlcsnap-2026-01-09-14h56m23s362_rvhvqz.png"
+        width="400" height="533" loading="lazy"
         class="w-full h-full object-cover"
         alt="Lenskart Project">
     </div>
@@ -287,9 +254,11 @@
 
 <custom-footer></custom-footer>
 
-<script src="script.js"></script>
-<script>feather.replace()</script>
+<script src="script.js" defer></script>
+<script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.feather) feather.replace();
+  });
+</script>
 </body>
 </html>
-
-
