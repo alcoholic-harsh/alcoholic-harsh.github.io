@@ -166,3 +166,25 @@ body {
 @media (min-width: 1024px) {
   .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* Video modal wrapper sizing — height-capped so tall (9:16) portrait
+   videos never overflow the viewport on wide/short screens like
+   laptops. Width is derived automatically from the aspect ratio. */
+.modal-wrapper-landscape {
+  position: relative;
+  width: 90%;
+  max-width: 56rem; /* max-w-4xl */
+  aspect-ratio: 16 / 9;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-wrapper-portrait {
+  position: relative;
+  height: 80vh;
+  max-height: 700px;
+  width: auto;
+  aspect-ratio: 9 / 16;
+  margin-left: auto;
+  margin-right: auto;
+}
